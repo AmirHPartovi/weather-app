@@ -1,6 +1,7 @@
 import React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Typography from '@mui/material/Typography'
+
 type Props = {}
 
 const LayoutHeader = (props: Props) => {
@@ -9,9 +10,7 @@ const LayoutHeader = (props: Props) => {
         <Typography variant='h4' component='h1'>
             {'هواشناسی'}
         </Typography>
-        <Box >
-
-        </Box>
+        
     </AppBar>
   )
 }
