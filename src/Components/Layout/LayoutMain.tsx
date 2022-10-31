@@ -8,7 +8,7 @@ const LayoutMain = (props: Props) => {
   return (
     <Grid>
         <LayoutHeader/>
-        <main>
+        <main style={{marginTop:'48px'}}>
         <Outlet/>
     </main>
     </Grid>
