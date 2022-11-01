@@ -9,20 +9,20 @@ import {Link} from 'react-router-dom'
 
 type Props = {
  cityWeather:any,
- city:string
+
  
 }
 
-const WeatherCard = ({cityWeather,city}: Props) => {
+const WeatherCard = ({cityWeather}: Props) => {
 
  console.log(cityWeather);
     const icon =`owf owf-${cityWeather?.cod} owf-5zx`
   return (
-    <Grid container item xs={12} p={2} dir={'rtl'} mt={6}>
-            <Grid item xs={12} md={3} bgcolor={'primary.main'} borderRadius={2} color={'common.white'} p={2}>
-            <i className={icon} style={{fontSize:'5rem'}}/>
-                <Typography variant={'body1'}>
-                    شهر: {cityWeather.name}
+    <Grid container direction={'column'} alignItems={'center'} xs={8} p={2} dir={'rtl'} mt={8} >
+            <Grid item xs={8} md={3} bgcolor={'primary.main'} borderRadius={2} color={'common.white'} p={2} textAlign={'center'} >
+            <i className={icon} style={{fontSize:'8rem'}} />
+                <Typography variant={'h5'} textAlign={'center'}>
+                     {cityWeather.name}
                 </Typography>
                 <Typography variant={'body1'}>
                     سرعت باد: {cityWeather?.wind?.speed}
@@ -36,11 +36,9 @@ const WeatherCard = ({cityWeather,city}: Props) => {
                 <Typography variant={'body1'}>
                     وضعیت هوا: {cityWeather?.weather?.[0]?.description}
                 </Typography>
-                <Link to={`/weather/${city}`}>
-                    <Button sx={{bgcolor:'common.white'}}>
-                        {'مشاهده 4 روز آینده'}
-                    </Button>
-                </Link>
+                <Grid container direction={'row'} justifyContent={'center'} xs={8}>
+                    
+                </Grid>
             </Grid>
         </Grid>
   )
