@@ -6,6 +6,9 @@ import {handleGetOneDayWeather} from '../../Api/Api'
 import {handleGetFiveDayWeather} from '../../Api/Api'
 import IranCities from '../../Data/IranCities.json'
 import city from '../../Components/Layout/LayoutHeader'
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
 
 type Props = {
   
@@ -13,7 +16,7 @@ type Props = {
 
 const Home = (props: Props) => {
   
-
+  const iran = IranCities.map(c => c.slug)
 
   const [city, setCity] = useState('tehran');
   
@@ -24,7 +27,10 @@ const Home = (props: Props) => {
   const [cityWeather3, setCityWeather3] = useState({})
   const [cityWeather4, setCityWeather4] = useState({})
   
-
+const handleCity =(e:any)=>{
+  e.preventDefault()
+  setCity(e.target.value)
+}
   const handleGetData = async () => {
       const data = await  handleGetOneDayWeather(city)
       setCityWeather(data)
@@ -45,10 +51,20 @@ console.log(cityWeather0)
   }, [city])
 
   return (
-    <Grid container justifyContent={'center'} alignItems={'flex-start'} spacing={2}>
-      
+    <Grid container direction={'column'} justifyContent={'flex-start'} alignItems={'center'} spacing={2}>
+      <Box justifyContent={'center'}>
+          
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={iran}
+          
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField onChange={handleCity} variant='outlined' {...params} label="شهر های ایران" />}
+          />
+        </Box>
       <WeatherCard cityWeather={cityWeather}/>
-      <Grid container direction={'row'}>
+      <Grid container direction={'row'} justifyContent={'center'}>
       <Grid>
       <WeatherCard cityWeather={cityWeather0}/>
       </Grid>

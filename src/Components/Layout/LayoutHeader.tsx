@@ -23,17 +23,7 @@ const LayoutHeader = (props: Props) => {
         <Typography variant='h3' component='h1'>
             {'هواشناسی ایران'}
         </Typography>
-        <Box width={250} justifyContent={'end'}>
-          
-          <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      options={iran}
-     
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField variant='outlined' {...params} label="شهر های ایران" />}
-    />
-        </Box>
+        
         
         </Grid>
   )
